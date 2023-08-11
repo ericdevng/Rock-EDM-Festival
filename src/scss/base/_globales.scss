@@ -1,0 +1,58 @@
+@use 'variables' as v;
+
+html {
+    font-size: 62.5%; //1rem = 10px
+    box-sizing: border-box; //snipet de Bob Lairish
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit; //quita problemas de padding (?) Bob Lairish
+}
+
+body {
+    font-family: v.$fuente_principal;
+    font-size: 1.6rem;
+
+    &.fijar-body {
+        overflow: hidden;
+    }
+    &.body-scroll {
+        padding-top: 8.6rem;//esto es lo que hace que no haya salto de linea para que aparezca el navegador
+    }
+}
+
+p{
+    font-size: 2rem;
+    color: v.$negro;
+    line-height: 1.5;
+}
+
+.contenedor{
+    width: 95%; //que no ocupe toda la pantalla..
+    max-width: 120rem; //...pero lo acotamos con 1200px
+    margin: 0 auto; // y lo centramos horizontalmente
+}
+
+a{
+    text-decoration: none;
+}
+
+h1, h2, h3{
+    margin: 0 0 5rem 0;
+}
+h1{
+    font-size: 4rem;
+}
+h2{
+    font-size: 3.6rem;
+}
+h3{
+    font-size: 3rem;
+}
+
+img{ //width hace la imagen responsiva y block que se ajuste al grid
+    max-width: 100%;
+    display: block;
+}

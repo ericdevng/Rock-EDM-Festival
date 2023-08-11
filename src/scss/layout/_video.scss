@@ -1,0 +1,44 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.video{
+    position: relative; //ambos positions son para que se encime el tecto en el video
+    max-height: 65rem; //para que el video tome una altura maxima y no se vaya hasta abajo
+    min-height: 50rem;
+    overflow: hidden; //para que no se vea la parte inferior para que no crezca tanto hacia abajo
+
+    .overlay{
+        position: absolute;
+        background: rgb(165,3,255);
+        background: linear-gradient(270deg, rgba(165,3,255,0.5) 0%, rgba(255,3,217,0.5) 100%);//css gradient
+        height: 100%; //queremos que haya un color gradiante que ocupe todo el espacio del video
+        width: 100%;
+        display: flex; //nos da chance de alinear vertical o con row horizontalmente    
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    video{
+        width:auto;
+        @include m.desktop{
+            width: 100%; //para que el video ocupe el 100% de la pantalla y no sobre espacio
+        }
+        display: block; // para que el video no se desborde hacia abajo, queda ajustado el video
+    }
+}
+
+.contenido-video{
+    z-index: 10; //para que el contenido este encima del video, en casos de posiciones absolutas y relativas es muy util
+    h2{
+        color: v.$blanco;
+        font-size: 7rem;
+        margin: 0;
+    }
+    p{
+        background-color: v.$rosa;
+        display: inline-block; //toma solo el espacio que requiere para colorear y no atraviesa toda la pantalla
+        padding: 1rem 2rem;
+        color: v.$blanco;
+        font-weight: 700;
+    }
+}

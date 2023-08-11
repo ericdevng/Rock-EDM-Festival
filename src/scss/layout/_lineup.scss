@@ -1,0 +1,78 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+
+.lineup{
+    background-color: v.$rosa;
+    padding: 5rem 0;
+
+    h3, p{
+        text-align: center;
+        color: v.$blanco;
+    }
+
+    .dia{
+        text-transform: uppercase;
+        margin: 5rem 0;
+    }
+}
+
+.escenarios-contenedor{
+    @include m.tablet{
+        @include m.grid(2, 5rem)
+    }
+    p{
+        color: v.$negro;
+    }
+}
+
+.escenario{
+    padding-top: 2rem;
+    .nombre-escenario{
+        &:after{
+            content: '';
+            display: block;
+            width: 20rem;
+            height: 10rem;
+            background-size: 15rem;
+            background-repeat: no-repeat; //las imagenes se repiten (?)
+            background-position: center center; //centrado horizontal del icono
+            margin: 2rem auto 0 auto; //iconos centrados
+            
+        }
+    }
+}
+
+.calendario{
+    @include m.resetListas;
+    li{ //en negritas toda la lista
+        padding: 2.5rem;
+        font-weight: 700;
+    }
+    span{
+        font-weight: 400; //excepto el nombre del artista
+    }
+}
+
+
+
+.edm .nombre-escenario:after{
+    background-image: url(../img/icono_edm.webp);
+}
+.rock .nombre-escenario:after{
+    background-image: url(../img/icono_rock.webp);
+}
+
+.bg-amarillo{
+    background-color: v.$amarillo;
+    li:nth-child(odd){
+        background-color: darken(v.$amarillo, 20%);
+    }
+}
+
+.bg-verde{
+    background-color: v.$verde;
+    li:nth-child(odd){
+        background-color: darken(v.$verde, 15%);
+    }
+}

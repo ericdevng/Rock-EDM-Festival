@@ -1,0 +1,37 @@
+@use 'variables' as v;
+
+@mixin telefono{
+    @media (min-width: v.$telefono){
+        @content;//para que lea el contedido que se le agrega al @include en header (lo inyecta) y soporta el bloque de contenido
+    }
+}
+
+@mixin tablet{
+    @media (min-width: v.$tablet){
+        @content;
+    }
+}
+
+@mixin desktop{
+    @media (min-width: v.$desktop){
+        @content;
+    }
+}
+
+@mixin desktopXL{
+    @media (min-width: v.$desktopXL){
+        @content;
+    }
+}
+
+@mixin grid($columnas, $gaping){
+    display: grid;//grid o celda
+    grid-template-columns: repeat($columnas, 1fr);//que sean dos columnas, mitad y mitad
+    gap: $gaping;//separacion
+}
+
+@mixin resetListas{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
